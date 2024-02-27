@@ -1,0 +1,24 @@
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    Bump-Version:
+        name: Bump Version
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: true
+            matrix:
+                node-version: [20.x]
+        steps:
+            - name: Checkout
+            id: checkout
+            uses: actions/checkout@v2
+            with:
+                fetch-depth: 0
+
+            - name: Bump Version
+            id: bump_version
+            uses: phips28/gh-action-bump-version@master
+
