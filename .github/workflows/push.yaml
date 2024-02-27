@@ -1,8 +1,9 @@
-on:
-    push:
-        branches:
-            - master
-
+name: Bump Version
+run-name: Bump Version
+on: [push]
+permissions:
+    contents: write
+    
 jobs:
     Bump-Version:
         name: Bump Version
@@ -21,6 +22,7 @@ jobs:
             - name: Bump Version
               with:
                   target-branch: master
+                  skip-tag: true
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               id: bump_version
