@@ -13,12 +13,14 @@ jobs:
                 node-version: [20.x]
         steps:
             - name: Checkout
-            id: checkout
-            uses: actions/checkout@v2
-            with:
-                fetch-depth: 0
+              id: checkout
+              uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
 
             - name: Bump Version
-            id: bump_version
-            uses: phips28/gh-action-bump-version@master
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              id: bump_version
+              uses: phips28/gh-action-bump-version@master
 
