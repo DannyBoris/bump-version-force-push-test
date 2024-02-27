@@ -20,6 +20,9 @@ jobs:
                   fetch-depth: 0
 
             - name: Bump Version
+              with:
+                  target-branch: master
+                  skip-tag: true
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               id: bump_version
