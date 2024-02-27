@@ -1,7 +1,6 @@
-on:
-    push:
-        branches:
-            - master
+name: Bump Version
+run-name: Bump Version
+on: [push]
 
 jobs:
     Bump-Version:
